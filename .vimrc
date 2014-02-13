@@ -20,11 +20,14 @@ Bundle 'bling/vim-airline'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'spolu/dwm.vim'
+Bundle 'walm/jshint.vim'
+Bundle 'scrooloose/syntastic'
 
 " Overtone/Clojure plugings
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
+Bundle 'editorconfig/editorconfig-vim'
 
 " Theme settings
 syntax on
@@ -34,16 +37,19 @@ set laststatus=2
 colorscheme solarized 
 let g:airline_powerline_fonts = 1
 let g:airline_theme="solarized"
+execute "set colorcolumn=" . join(range(81,335), ',')
+set background=dark 
 
 " Whitespace settings
 set nowrap
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smarttab
 set autoindent
 set smartindent
+set cindent
 
 " Search settings
 set hlsearch
@@ -56,12 +62,17 @@ set relativenumber
 let g:NumberToggleTrigger="<F2>"
 set mouse=a
 
-
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
+" autocmd vimenter * NERDTree
 nnoremap <CR> :noh<CR><CR>
 
 " Extra settings
 set noswapfile
+inoremap jk <ESC>
+" let mapleader = ","
+
+" Spellcheck
+set spell spelllang=en_us
 
 filetype plugin indent on
