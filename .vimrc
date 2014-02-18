@@ -38,7 +38,9 @@ colorscheme solarized
 let g:airline_powerline_fonts = 1
 let g:airline_theme="solarized"
 execute "set colorcolumn=" . join(range(81,335), ',')
+let g:solarized_termtrans=1
 set background=dark 
+
 
 " Whitespace settings
 set nowrap

@@ -21,4 +21,10 @@ setxkbmap -option caps:swapescape
 # Disable touchpad for ThinkPad
 synclient TouchpadOff=1
 
+# Set wallpaper
+eval `cat ~/.fehbg`
+
+# Transparency
+compton &
+
 exec dwm
