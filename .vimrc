@@ -12,18 +12,25 @@ Bundle 'gmarik/vundle'
 
 " My bundles here:
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'spolu/dwm.vim'
 Bundle 'walm/jshint.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'nathanaelkane/vim-indent-guides'
 
-" Overtone/Clojure plugings
+" Theme bundles
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+
+" Java plugins
+Bundle 'adragomir/javacomplete'
+
+" Overtone/Clojure plugins
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
@@ -53,6 +60,10 @@ set autoindent
 set smartindent
 set cindent
 
+" Indent Guides
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
 " Search settings
 set hlsearch
 set incsearch
@@ -65,7 +76,7 @@ let g:NumberToggleTrigger="<F2>"
 set mouse=a
 
 " NerdTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-S-n> :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
 nnoremap <CR> :noh<CR><CR>
 

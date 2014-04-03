@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-BASE16_SCHEME="default"
+#BASE16_SCHEME="default"
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 #[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
@@ -91,3 +91,6 @@ man() {
     man "$@"
 }
 
+#export PATH=~/devel/Pebble/PebbleSDK-2.0.1/bin:$PATH
+GOPATH=~/go
+WEARSCRIPT_ENDPOINT=wss://api.wearscript.com/ws/TzM8NFltL19PPMzt
