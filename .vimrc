@@ -22,6 +22,7 @@ Bundle 'walm/jshint.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Rip-Rip/clang_complete'
 
 " Theme bundles
 Bundle 'altercation/vim-colors-solarized'
@@ -41,12 +42,13 @@ syntax on
 set t_Co=256
 set encoding=utf-8
 set laststatus=2
-colorscheme solarized 
+" colorscheme solarized 
 let g:airline_powerline_fonts = 1
-let g:airline_theme="solarized"
+let g:airline_theme="bubblegum"
 execute "set colorcolumn=" . join(range(81,335), ',')
 let g:solarized_termtrans=1
 set background=dark 
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
 " Whitespace settings
@@ -76,9 +78,13 @@ let g:NumberToggleTrigger="<F2>"
 set mouse=a
 
 " NerdTree
-map <C-S-n> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
 nnoremap <CR> :noh<CR><CR>
+
+" Clang
+let g:clang_c_options = '-std=gnull'
+let g:clang_cpp_options = '-std=c++ll -stdlib=libc++'
 
 " Extra settings
 set noswapfile
@@ -86,6 +92,6 @@ inoremap jk <ESC>
 " let mapleader = ","
 
 " Spellcheck
-set spell spelllang=en_us
+" set spell spelllang=en_us
 
 filetype plugin indent on
