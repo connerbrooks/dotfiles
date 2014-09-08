@@ -1,36 +1,38 @@
 set nocompatible
-
-" vundle settings
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
-Bundle 'spolu/dwm.vim'
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'spolu/dwm.vim'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mikewest/vimroom'
 
 " Language specific bundles
-Bundle 'scrooloose/syntastic'
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'walm/jshint.vim'
-Bundle 'jelera/vim-javascript-syntax'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Rip-Rip/clang_complete'
+Plugin 'fatih/vim-go'
 
 " Theme bundles
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 
-Bundle 'editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-fugitive'
 
+call vundle#end()
+filetype plugin indent on
+
+" Vim settings
 " Theme settings
 syntax on
 set t_Co=256
@@ -40,8 +42,9 @@ colorscheme solarized
 let g:airline_powerline_fonts = 1
 let g:airline_theme="solarized"
 execute "set colorcolumn=" . join(range(81,335), ',')
-let g:solarized_termtrans=1
+" let g:solarized_termtrans=1
 set background=dark 
+call togglebg#map("<F5>")
 
 " Whitespace settings
 set nowrap
@@ -84,5 +87,9 @@ let g:clang_cpp_options = '-std=c++ll -stdlib=libc++'
 " Extra settings
 set noswapfile
 inoremap jk <ESC>
+set backspace=indent,eol,start
 
-filetype plugin indent on
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
