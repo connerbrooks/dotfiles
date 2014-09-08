@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mikewest/vimroom'
 
 " Language specific bundles
 Plugin 'scrooloose/syntastic'
