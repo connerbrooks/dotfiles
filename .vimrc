@@ -7,27 +7,28 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'gmarik/vundle'
 
-" My bundles here:
+" Bundles
 Plugin 'spolu/dwm.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'mikewest/vimroom'
-
-" Language specific bundles
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Rip-Rip/clang_complete'
-Plugin 'fatih/vim-go'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mikewest/vimroom'
 
 " Theme bundles
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-fugitive'
+if has("python")
+  Plugin 'Valloric/YouCompleteMe'
+endif
+
+if isdirectory(expand("$HOME/go"))
+  Plugin 'fatih/vim-go'
+endif
 
 call vundle#end()
 filetype plugin indent on
@@ -38,9 +39,11 @@ syntax on
 set t_Co=256
 set encoding=utf-8
 set laststatus=2
+" Solarized themes
+" Requires solarized terminal colors
 colorscheme solarized 
-let g:airline_powerline_fonts = 1
 let g:airline_theme="solarized"
+let g:airline_powerline_fonts = 1
 execute "set colorcolumn=" . join(range(81,335), ',')
 " let g:solarized_termtrans=1
 set background=dark 
@@ -81,8 +84,8 @@ map <C-e> :NERDTreeToggle<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Clang
-let g:clang_c_options = '-std=gnull'
-let g:clang_cpp_options = '-std=c++ll -stdlib=libc++'
+" let g:clang_c_options = '-std=gnull'
+" let g:clang_cpp_options = '-std=c++ll -stdlib=libc++'
 
 " Extra settings
 set noswapfile
@@ -90,6 +93,14 @@ inoremap jk <ESC>
 set backspace=indent,eol,start
 
 set noerrorbells visualbell t_vb=
+
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
+
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
