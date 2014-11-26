@@ -72,9 +72,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools
-export PATH=$PATH:/Applications/Android\ Studio.app/sdk/tools
-export PATH=$PATH:/Applications/Android\ Studio.app/sdk/build-tools
+export ANDROID=$HOME/bin/sdk
+export PATH=$PATH:$ANDROID/platform-tools
+export PATH=$PATH:$ANDROID/tools
+export PATH=$PATH:$ANDROID/build-tools
 export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PLAN9=/usr/local/plan9
