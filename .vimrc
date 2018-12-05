@@ -24,11 +24,11 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 if has("python")
-  Plugin 'Valloric/YouCompleteMe'
+"  Plugin 'Valloric/YouCompleteMe'
 endif
 
 if isdirectory(expand("$HOME/go"))
-  Plugin 'fatih/vim-go'
+"  Plugin 'fatih/vim-go'
 endif
 
 call vundle#end()
@@ -40,20 +40,22 @@ syntax on
 set t_Co=256
 set encoding=utf-8
 set laststatus=2
+
 " Solarized themes
 " Requires solarized terminal colors
-colorscheme solarized 
+set background=light
+colorscheme solarized
+
 let g:airline_theme="solarized"
 let g:airline_powerline_fonts = 1
 execute "set colorcolumn=" . join(range(81,335), ',')
 " let g:solarized_termtrans=1
-set background=dark 
 call togglebg#map("<F5>")
 
 " Whitespace settings
 set nowrap
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set softtabstop=2
 set expandtab
 set smarttab
