@@ -39,6 +39,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # todo figure out if this is needed
 # fpath=(/usr/local/share/zsh-completions $fpath)
 
+# Aliases and directories stuff
+# List directory contents
+alias ls='ls -G'
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
 # my prompt
 # todo: my own git integration
 setopt prompt_subst
