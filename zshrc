@@ -1,5 +1,3 @@
-echo "Hey cbrooks"
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000000
@@ -28,16 +26,24 @@ export KEYTIMEOUT=1 # faster vi mode switch
 # End of lines configured by zsh-newuser-install
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/cbrooks/.zshrc'
+zstyle :compinstall filename '/home/cbrooks/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # todo figure out if this is needed
 # fpath=(/usr/local/share/zsh-completions $fpath)
+
 
 # Aliases and directories stuff
 # List directory contents

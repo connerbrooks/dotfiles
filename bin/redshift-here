@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+# redshift for san mateo
+redshift -l 37.5:-122.3
