@@ -16,9 +16,3 @@ do
         ln -s $dotfiles_dir/$dotfile .$dotfile
     fi
 done
-
-if [ $SHELL != $(which zsh) ]; then
-    print -P '%F{cyan}Changing shell...%f'
-    chsh -s $(which zsh)
-fi
-
