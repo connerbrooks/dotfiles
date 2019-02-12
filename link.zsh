@@ -4,16 +4,21 @@ dotfiles_dir=${0:A:h}
 home_dir=~
 
 cd $home_dir
-echo 'Linking files from $dotfiles_dir to $home_dir'
+print -P %F{cyan}"Linking files from $dotfiles_dir to $home_dir"%f
 
 for dotfile in zshenv zshrc vimrc tmux.conf compton.conf xsession conkyrc gtkrc-2.0
 do
-    echo "Linking\n\t $dotfiles_dir/$dotfile -> $home_dir/.$dotfile" 
-    ln -s $dotfiles_dir/$dotfile .$dotfile
+    file_with_dot=.$dotfile
+    if [[ -a $file_with_dot ]]; then
+        print -P %F{yellow}'Already linked' $dotfile%f
+    else
+        print -P %F{cyan}"[Linking] $dotfiles_dir/$dotfile -> $home_dir/.$dotfile"%f
+        ln -s $dotfiles_dir/$dotfile .$dotfile
+    fi
 done
 
-print -P '%F{cyan}Changing shell...%f'
 if [ $SHELL != $(which zsh) ]; then
+    print -P '%F{cyan}Changing shell...%f'
     chsh -s $(which zsh)
 fi
 
