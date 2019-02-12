@@ -7,5 +7,5 @@ total_run_times = 0,
 use_spacer = 'none',
 };
 conky.text = [[
-| ${cpu cpu1}% / ${cpu cpu2}% / ${cpu cpu3}% / ${cpu cpu4}% | ${acpitemp}c | $memperc% ($mem) | ${downspeed eth0}K/s ${upspeed eth0}K/s | ${time %a %b %d %I:%M%P} |
+| ${cpu cpu1}% / ${cpu cpu2}% / ${cpu cpu3}% / ${cpu cpu4}% | ${acpitemp}c | $memperc% ($mem) | ↓${downspeedf eno1}KiB/s ↑${upspeedf eno1}KiB/s | ${time %a %b %d %I:%M%P} |
 ]];
