@@ -1,4 +1,0 @@
-#!/bin/zsh
-# redshift for CA 
-
-redshift -l 37.5:-122.3

@@ -6,7 +6,7 @@ home_dir=~
 cd $home_dir
 print -P %F{cyan}"Linking files from $dotfiles_dir to $home_dir"%f
 
-for dotfile in zshenv zshrc vimrc tmux.conf compton.conf xsession conkyrc gtkrc-2.0
+for dotfile in zshenv zshrc vimrc tmux.conf compton.conf xsession conkyrc gtkrc-2.0 themes
 do
     file_with_dot=.$dotfile
     if [[ -a $file_with_dot ]]; then

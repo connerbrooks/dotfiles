@@ -52,6 +52,7 @@ alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
+alias open='xdg-open'
 
 # my prompt
 # todo: my own git integration
