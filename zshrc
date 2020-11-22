@@ -27,6 +27,13 @@ bindkey -v
 export KEYTIMEOUT=1 # faster vi mode switch
 # End of lines configured by zsh-newuser-install
 
+# up/down key history based on input
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "$key[Up]" history-beginning-search-backward-end
+bindkey "$key[Down]" history-beginning-search-forward-end
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/cbrooks/.zshrc'
 
