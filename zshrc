@@ -29,8 +29,10 @@ export KEYTIMEOUT=1 # faster vi mode switch
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "$key[Up]" history-beginning-search-backward-end
-bindkey "$key[Down]" history-beginning-search-forward-end
+# bindkey "$key[Up]" history-beginning-search-backward-end
+# bindkey "$key[Down]" history-beginning-search-forward-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/cbrooks/.zshrc'
@@ -123,7 +125,9 @@ prompt_git() {
     zstyle ':vcs_info:*' formats ' %u%c'
     zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info
-    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode} "
+    # no cool characters
+    #echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode} "
+    echo -n "${ref/refs\/heads\//}${vcs_info_msg_0_%% }${mode} "
   fi
 }
 
@@ -139,3 +143,6 @@ build_prompt() {
 }
 
 PROMPT='$(build_prompt)'
+
+# LSCOLORS
+export LSCOLORS="gxfxcxdxbxegedabagacad"
