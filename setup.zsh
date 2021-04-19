@@ -34,9 +34,14 @@ cp $dotfiles_dir/zshrc .zshrc
 
 popd
 
-# gtk settings for dwm
+
 echo "Linking .config/gtk-3.0/settings.ini"
 pushd .config/gtk-3.0/
 ln -s $dotfiles_dir/settings.ini settings.ini
+popd
+
+echo "Linking /usr/share/xsessions/dwm.desktop"
+pushd /usr/share/xsessions
+ln -s $dotfiles_dir/dwm.desktop dwm.desktop
 popd
 
