@@ -3,12 +3,33 @@
 dotfiles_dir=${0:A:h}
 home_dir=~
 
-cd $home_dir
-echo 'Linking files from $dotfiles_dir to $home_dir'
+pushd $home_dir
+echo "Linking files from $dotfiles_dir to $home_dir"
 
-for dotfile in zshrc vimrc tmux.conf
+for dotfile in vimrc tmux.conf
 do
-    echo "Linking\n\t $dotfiles_dir/$dotfile -> $home_dir/.$dotfile" 
+    echo "Linking $dotfiles_dir/$dotfile -> $home_dir/.$dotfile"
     ln -s $dotfiles_dir/$dotfile .$dotfile
 done
 
+if [[ ! -a .czsh ]]; then
+    echo 'Linking czsh'
+    ln -s $dotfiles_dir/czsh .czsh
+else
+    echo 'czsh already linked'
+fi
+
+if [[ -a .zshrc ]]; then
+    if read -q 'choice?Old .zshrc will be moved to .zshrc.old, continue? '; then
+        mv .zshrc .zshrc.old
+    else
+        echo
+        echo 'Exiting'
+        exit
+    fi
+fi
+echo
+echo 'Copying zshrc to home folder.'
+cp $dotfiles_dir/zshrc .zshrc
+
+popd
